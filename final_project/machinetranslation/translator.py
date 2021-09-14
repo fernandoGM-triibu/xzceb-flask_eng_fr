@@ -26,8 +26,6 @@ def english_to_french(english_text):
     french_text = language_translator.translate(
         text=english_text,
         model_id='en-fr').get_result()
-    ##print(json.dumps(french_text, indent=2, ensure_ascii=False))
-    ###print(french_text)
 
     json_object = json.loads(json.dumps(french_text, indent=2, ensure_ascii=False))
 
@@ -37,14 +35,10 @@ def french_to_english(french_text):
     """
     This function return translation french to english.
     """
-    #write the code here
     english_text = language_translator.translate(
         text=french_text,
         model_id='fr-en').get_result()
-    ##french_translation = json.dumps(english_text, indent=2, ensure_ascii=False)
     
-    ###print(english_text)
     json_object = json.loads(json.dumps(english_text, indent=2, ensure_ascii=False))
     ###print(json_object["translations"][0]["translation"])
-    ###print(json.dumps(english_text, indent=2, ensure_ascii=False))
     return json_object["translations"][0]["translation"]
